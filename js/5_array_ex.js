@@ -41,3 +41,42 @@ for (let i =0; i<5; i++) {
 }
 console.log(arr2)
 
+
+console.clear();
+
+const arr3 = new Array(10,20,30,40,50);
+
+for(let i =0; i<arr3.length; i++) {
+  console.log(`arr1[${i}] -> ${arr1[i]}`)
+}
+
+console.log(arr3.length); //배열의 길이 
+console.log(arr3) //5
+
+arr3.push(100);// 가장 마지막 배열의 요소 뒤에 추가 
+console.log(arr3);// [10, 20, 30, 40, 50, 100]
+arr3.pop(); //가장마지막 배열의 요소 제거 
+console.log(arr3);//[10, 20, 30, 40, 50]
+
+arr3.shift();//가장 첫번째 배열의 요소 제거
+console.log(arr3)//[10, 20, 30, 40, 50]
+
+arr3.unshift(200);//가장 첫번째 배열의 요소 앞에 추가
+console.log(arr3)//
+
+console.log(arr3.indexOf(200));//
+
+arr3.splice(0 ,2); //시작번지 ,제거 갯수 , 원본손상
+console.log(arr3) //(3) [30 , 40 ,50]
+console.log(arr3.slice( 0, 2)) // 
+const arr3_2 =arr3.slice( 0, 2); // 
+arr3.slice(0,2) //0번지부터 2번지 -1 -> 1번지 까지 
+console.log(arr3) // (3) [30 ,40 ,50 ], 원본 손상이 없다.
+
+const arr4 = [100 , 200, 300 ,400 ,500]
+
+const arr5  = arr3.concat(arr4);
+
+console.log(arr5)// (8) [30, 40, 50, 100, 200, 300, 400, 500]
+ 
+

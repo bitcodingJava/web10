@@ -1,0 +1,283 @@
+
+1.찾아서 -> 2.이벤트 -> 3.구현(함수)
+
+***자바스크립트 선택자 (DOM) -> React ->useRef Hook
+//DOM 객체를 선택자 -> '찾아서', DOM 계층 구조적으로 접근 -> get ~ 가져오는, 조회하는,선택하는 
+-아이디 선택자
+	document.getElementById('아이디명');
+-클래스 선택자 -> 하나의 요소만 있더라로 [0]로 접근
+	document.getElementsByClassName('클래스명');       //모든 클래스 요소를 선택
+-name 선택자 -> 하나의 요소만 있더라로 [0]로 접근
+	document.getElementsByName('name명');//from name
+-태그 선택자 -> 하나의 요소만 있더라로 [0]로 접근
+	document.getElementsByTagName('태그명');	
+
+2)css 선택자를 이용해서 -> 현재 시점에서 가장 많이 사용
+-아이디 선택 
+	document.querySelector('#아이디');
+-하나의 클래스를 선택 ->클래스가 하나일 경우
+	document.querySelector('.클래스명'); //하나만 -> 클래스중에 첫번째 요소
+
+	document.querySelectorAll('.클래스명')[0]; //동일 클래스들 중에 첫번째(다중)
+
+
+
+
+
+-name 선택자 document.querySelector('input[type=""]') -> input[속성=속성값]
+<input type="" name="" id="" value="">
+
+**** 사용자의 정보를 입력 -> 표시 값이 value -> type string 
+<input type="" name="" id="" value="0">
+
+"문자열"+숫자 -> "문자열"+"숫자" -> "문자열"
+
+"문자열" ->숫자 -> parseInt("숫자형태의문자열") "10"  -> 10
+
+"숫자100" NAN
+**String 관련 내장 함수 
+
+**내장 함수
+선택자.innerText="값" ; //선택자에 텍스트 값을 추가
+선택자.innerHTML ="html"; //선택자에 HTML요소를 추가
+
+선택자(input).value                  -> input value 값을 get
+선택자(input).value="값" 	-> input value 값을 set(추가, 설정)
+
+***팝업(모달창), 입력창, 확인창 -> 직접 개발자들이 만들어서 사용 
+alert('값')   //팝업
+
+prompt('값'); //입력 , string 반환 -> 산술 연산을 하기 위해서 number변환
+prompt('제목',값);
+prompt('제목');  // -> 값을 입력하면 그 값이 반환 된다 (확인 클릭시)
+	       **입력값은 prompt()  -> 함수를 호출 한 곳에 반환 된다.
+	       parseInt('숫자모양의 문자열'); // string -> number
+
+confirm('값')  //확인 -> true, false 반환
+		->"회원가입 성공 했씁니다. 로그인 페이지로 이동하겠습니다"
+
+
+***함수 -> 미리 실행 할 명령문을 작성해 놓은 명령문의 집합 -> 이벤트등을 통해서 구현한다.
+
+***함수는 호출(call)를 통해서 구현된다.
+***함수명()
+***함수는 호출과동시에 return값을 반환 하고 종료 한다.
+***함수는 호출 할때 마다 실행 된다.
+***함수내에 선언된 변수를 지역변수(logical)라 한다.
+
+
+
+
+조건문 (Condition) -> if , switch
+
+->제어문: 조건이 true , false에 따라 명령문(구현문,실행문)을 구현
+
+1.if문 -> 조건이 ture ,false일 때 명령문을 실행
+1)조건이 하나일때 -> true일 때만 실행 ** 한번도 실행 안될수도있다.
+	
+	if(조건) {
+
+		//실행문; 조건 true 일때만 실행
+            }
+
+	if(조건) //실행문; // {}없이도 사용, 실행문이 한줄
+
+2)조건이 두개 일때 -> 삼항연산자로 대체 가능 : ***react
+	
+	if(조건) {
+		//조건이 true
+	}else if{
+		//조건이 true가 아닐경우
+	}
+
+3)조건 2개 이상
+
+	if(조건1) {
+			//조건1이true
+		else if(조건2){
+			//조건2이 true
+
+		}else if(조건3){
+			//조건3이 true	
+		}else if(조건4){
+			//조건4이 true
+		}
+	}
+
+4)중복 if문
+	if(조건1) {
+
+		if(조건2){
+
+
+	}else{
+
+	}
+
+
+}
+
+
+2.switch문 -> 모든 switch문은 if문으로 바꿀수 있다.
+	-> 조건값은 정수형, 문자형 데이터 변수만
+ 	->특정 범위, 이상 , 이하 .. 사용하기 부적합하다.
+
+switch ~ case 문
+const rs = 5;
+switch(rs) {
+
+
+	case 1: // rs가 1이면
+		//명령문
+	break; // break문을 만나면 switch문 종료
+	case 2: // rs가 2이면
+		//명령문
+	break;
+
+	case 3: // rs가 3이면 
+		//명령문
+	break;
+	default: // case 조건 이외의 기본
+		//명령문
+}// break 실행 시 위치
+***break -> 반복문 , switch문에서 break문을 만나면 종료
+
+
+***Role -> 권한 -> 관리자,일반,직원 
+//ROLE_ADMIN, ROLE_MEMBER,ROLE_MANAGER 
+const role = 'ROLE_ADMIN';
+
+switch(role){
+	case 'ROLE_ADMIN':
+		//관리자 권한 -> 관리자권한 페이지
+		break;
+	case 'ROLE_MEMBER':
+		//일반회원 권한 -> 회원권한 페이지
+		break;
+	case 'ROLE_MANAGER':
+		//매니저 권한 -> 매니저권한 페이지
+		break;
+	default:
+		//권한이 없으므로 현재 페이지를 볼수 없습니다.
+
+
+}
+
+
+*** 반복문(loop) -> 명령문을 반복, 일(연산)을 반복처리, 이벤트 반복처리
+-기본 -> 프로그램언어 기본적으로 사용법이 비슷하다 .
+
+
+1.for -> 기본 반복문 중에서 가장 많이 사용 , 배열과 짝꿍
+***사용자가 조회 갯수를 설정 할수 있다. -> 장점, 단점 
+
+
+for(초기화;조건식;증감식) {
+	//처리문(조건식 true)
+}
+for(let i=0; i<10; i++) {
+	console.log(i); // 0~ 9
+}
+
+2.while -> 조건이 true 이면 반복문 실행 , 데이터베이스의 정보를 불러 올때 많이 사용 
+	*** 무한루프(무한반복)를 조심
+
+
+초기화 
+
+while(조건식) {
+	증감식;
+	//처리문
+}
+
+let rs= 10;
+while(rs>0) {
+	console.log(rs);
+}
+
+
+3)do ~ while -> 반드시 한번은 실행 한다. while문과 비슷하다.
+초기화
+
+do {
+	//
+	증감식;
+	//
+	
+}while(조건); // 조건이 false라도 한번은 실행 
+
+***break     -> 반복을 종료, break이후 명령문을 실행 하지 않는다.
+***continue -> 반복문을 종료 하고 다시 실행(종료시점까지), 계속 
+
+
+**scope -> 유효범위
+
+global scope(전역 공간) -> 공통공간 -> 위치와 상관 없이 유효(적용) -> window 객체
+			전역변수 , 전역함수
+
+local scope(지역 공간) -> 함수 공간 -> 특정 블럭{} 안에서만 유효
+			지역변수, 지역함수
+
+
+**** 즉시실행함수(Immediately-invoked function expression)
+-> 페이지가 시작(로딩)되면 자동으로 실행 되는 함수 -> 한번만 실행
+(function(){
+		//명령문
+
+})(); 
+
+(()=>{})(); //화살표 함수로 적용 
+
+->function 함수명(){}
+->function(){} ***익명함수
+-> 화살표 함수(arrow function) ->익명함수 처리, java-> Ramda식 , 무명클래스 , 내부클래스
+
+*** 자바스크립트 배열 -> 다른프로그램 언어 배열 유사, java 컬렉션 프레임워크 List<T>
+배열(Array) -> 객체(object) ->"순서가있는리스트"
+1.하나 이상의 data를 순서대로 그룹화  ***리스트
+2.배열의 인덱스(index) 0번지 부터 시작
+3.배열의 총 요소의 갯수 = 배열의 전체인덱스+1 -> 배열의 총수 10개면 -> 0123456789
+4.자바스크립트 배열의 요소의 data type은 다른 type의 data를 저장 할수있다.
+5.배열 선언 방법이 다양하다.
+1)배열 선언 방법1
+	const arr1=[1,2,3]
+2)배열 선언 방법2
+	const arr2 = new Array();
+3)배열 선언 방법3
+	const arr3 = new Array(1,2,3);
+6.배열은 선언과 동시에 초기화 시켜야한다.
+7.다양한 배열 내장 함수가 존재한다.
+8반복문과 같이 사용한다.
+9.배열의 이름에 전체 배열의 주소가 저장
+ 	-> 배열의 각요소에 접근(참조)할때 배열이름[인덱스]
+
+
+**옵셔널 -> React, Spring JPA 
+? ->"있을 수도 있고 없을 수도 있따~" , 만약에 없을 경우 에러가 발생되지 않는다. 
+
+배열(Array) 함수, HTMLCollection, List -> 배열형 객체(순서가 있는 리스트0~)
+length -> 배열의 길이 -> 배열의 마지막 요소 length -1
+*push() -> 배열의 마지막 요소 뒤에 추가  ***java -> 스택 ,큐
+*pop() -> 배열 마지막 요소 삭제 ***java ->스택 , 큐
+
+pop() -> 배열 마지막 요소 삭제
+shift() -> 배열 가장 앞 요소 삭제
+unshift() ->배열 가장 앞 요소 추가
+indexOf('찾을값')-> 배열 인덱스 찾기, 찾을 값이 없으면 -1 
+splice(pos, 1) -> 인덱스부터 n개 제거 // 항목을 제거하는 방법(원본손상)
+slice(0,2) -> 시작번지 ~ 끝번지-1 (원본손상 X)
+*concat() -> 배열을 합친다.(두개이상) -> **** "합친다~" 다른 프로그래밍 언어 ~ 
+
+
+
+1. 배열이란?
+2.배열 생성 방법
+3.배열의 크기
+4.배열의 인덱스(순서)
+
+
+
+
+
+
+
