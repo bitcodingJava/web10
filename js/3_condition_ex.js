@@ -176,13 +176,14 @@ function decreBtnFn(){
   //if문으로
   if (newCountVal === 0) {
     alert('최저값이 0 입니다')
-
-  
+    
+    
+    
     // return;  //함수 내에서 return문을 만나면 그 위치에서 함수가 종료된다.
   }
   
   countVal.value = --newCountVal;
-  
+  return
 }
 
 
